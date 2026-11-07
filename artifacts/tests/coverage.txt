@@ -1,0 +1,66 @@
+
+> acco-note@0.1.0 test:coverage
+> node --experimental-test-coverage --test tests/domain.test.mjs tests/boundaries.unit.test.mjs tests/backup.unit.test.mjs tests/store.integration.test.mjs
+
+✔ strict JSON accepts escaped strings, primitive values and standard whitespace (1.2205ms)
+✔ duplicate decoded keys, truncated JSON, trailing data and excessive depth are rejected (0.2932ms)
+✔ non-JSON whitespace is rejected (0.1205ms)
+✔ backup identity, version, timezone, currency and exact settings schema (5.611ms)
+✔ backup rejects duplicate IDs and noncanonical UUID structure (0.876ms)
+✔ backup metadata requires valid UTC ISO timestamps (1.6396ms)
+✔ backup export does not include internal state or normalized names and roundtrips (0.5993ms)
+✔ date bounds, leap days, month ends and year rollover (1.1434ms)
+✔ transaction money accepts only bounded positive integer numbers (5.2944ms)
+✔ text rejects blank titles and limits Unicode codepoints (2.0142ms)
+✔ income cannot reference expense category or payment method (1.0534ms)
+✔ payment days and normalized category names have independent constraints (3.4593ms)
+✔ partial refunds allow exact full refund but reject overflow and invalid dates (1.3767ms)
+✔ income and scheduled transactions cannot be refunded (0.562ms)
+✔ refund locks parent financial facts but follows edited descriptive links (6.0707ms)
+✔ zero budget is distinct from unset, category budget requires parent and expense kind (0.8983ms)
+✔ same-day withdrawals are order independent while historical deficits are rejected (0.6306ms)
+✔ savings date bounds and archived goals reject new entries (0.5552ms)
+✔ weekly recurrence respects inclusive end date and original anchor (1.1583ms)
+✔ same-day rule edits use latest tomorrow version without rewriting today (0.4099ms)
+✔ stop suppresses a materialized future occurrence and resume reuses its identity once (0.5518ms)
+✔ deleted recurrence preserves history and cannot resume, edit or unskip (0.4091ms)
+✔ totals separate refunds, confirmed income, scheduled and skipped events (0.1674ms)
+✔ refund date attribution and immutable refunded amount (4.3356ms)
+✔ future dates excluded, due processing idempotent (0.2204ms)
+✔ calendar recurrence anchors survive February and leap years (4.7596ms)
+✔ delete recurring transaction retains skip and undo restores once (4.9622ms)
+✔ paused recurrence does not backfill pause interval (0.6107ms)
+✔ rule edit keeps historical versions and individually modified future occurrence (3.6552ms)
+✔ savings running balance, same-day deposits first (0.6572ms)
+✔ zero budget, negative net and exact large sums (0.6691ms)
+✔ archived references retained but cannot be newly assigned (0.3028ms)
+✔ backup roundtrip, duplicate keys, unknown fields and broken references rejected (1.7008ms)
+✔ initialization and reopen preserve defaults without duplicate categories (19.4033ms)
+✔ related transaction and refund are committed together and reads are detached (3.5506ms)
+✔ two concurrent writers using one token commit exactly one update (2.7771ms)
+✔ write failure after clears and puts rolls back every store and sequence (4.2357ms)
+✔ invalid replacement preserves current data and the existing recovery snapshot (3.9564ms)
+✔ successful restore changes generation and invalidates older edits even with matching sequence (2.4438ms)
+✔ startup confirms due records once and repeated due sync does not advance sequence (2.6682ms)
+✔ IndexedDB atomic rollback, conflicts, reopen and restore recovery (3.7886ms)
+ℹ tests 41
+ℹ suites 0
+ℹ pass 41
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 144.6764
+ℹ start of coverage report
+ℹ ------------------------------------------------------------
+ℹ file        | line % | branch % | funcs % | uncovered lines
+ℹ ------------------------------------------------------------
+ℹ public      |        |          |         |
+ℹ  core       |        |          |         |
+ℹ   backup.js | 100.00 |    92.16 |   91.67 |
+ℹ   domain.js | 100.00 |    94.22 |   91.76 |
+ℹ   store.js  | 100.00 |    90.77 |   78.57 |
+ℹ ------------------------------------------------------------
+ℹ all files   | 100.00 |    93.38 |   88.80 |
+ℹ ------------------------------------------------------------
+ℹ end of coverage report

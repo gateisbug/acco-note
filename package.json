@@ -1,0 +1,30 @@
+{
+  "name": "acco-note",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+    "description": "Acco Note local-first personal finance PWA",
+  "scripts": {
+    "dev": "node scripts/serve.mjs",
+    "build:icons": "node scripts/build-icons.mjs",
+    "check": "node --check public/ui-components.js && node --check public/ui-inputs.js && node --check public/live.js && node --check public/core/domain.js && node --check public/core/store.js && node --check public/core/backup.js && node --check public/sw.js",
+    "test:unit": "node --test tests/domain.test.mjs tests/boundaries.unit.test.mjs tests/backup.unit.test.mjs",
+    "test:integration": "node --test tests/store.integration.test.mjs",
+    "test:core": "npm run test:unit && npm run test:integration",
+    "test:coverage": "node --experimental-test-coverage --test tests/domain.test.mjs tests/boundaries.unit.test.mjs tests/backup.unit.test.mjs tests/store.integration.test.mjs",
+    "test": "npm run check && npm run test:core && npm run test:ui",
+    "test:ui": "playwright test",
+    "test:browser": "playwright test tests/browser.integration.spec.cjs tests/live.spec.cjs tests/ux.spec.cjs",
+    "test:preview": "playwright test tests/preview.spec.cjs",
+    "audit:ui": "node scripts/ui-audit.cjs"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.14.0",
+    "@playwright/test": "^1.65.0",
+    "fake-indexeddb": "^6.2.7"
+  },
+  "dependencies": {
+    "flatpickr": "4.6.13",
+    "lucide-static": "1.70.0"
+  }
+}

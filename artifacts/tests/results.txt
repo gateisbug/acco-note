@@ -1,0 +1,53 @@
+아코 노트 단위·통합 테스트 결과 — 2026-11-07
+
+계획: /TESTING.txt
+최종 실행: npm.cmd test (종료 코드 0)
+구문 검사: 통과
+
+테스트 구분                       통과   실패
+단위 (도메인·백업)                  33     0
+저장소 통합 (fake-indexeddb)         8     0
+실제 앱 브라우저 통합/E2E            18     0
+기존 무저장 퍼블리싱 회귀            15     0
+합계                               74     0
+
+구성
+tests/domain.test.mjs: 기존 핵심 로직 회귀 10개.
+tests/boundaries.unit.test.mjs: 날짜·금액·환불·예산·저축·반복 경계 16개.
+tests/backup.unit.test.mjs: JSON·스키마·메타데이터 검증 7개.
+tests/store.integration.test.mjs: 저장소 독립 통합 8개.
+tests/browser.integration.spec.cjs: 실제 IndexedDB/탭/도래/보관/예산 복사 5개.
+tests/live.spec.cjs: 실제 기능·오프라인·오류·화면/접근성 8개.
+tests/ux.spec.cjs: 사용성 회귀 5개.
+tests/preview.spec.cjs: 퍼블리싱 회귀 15개.
+
+이번 실행에서 발견하고 수정한 결함
+1. JSON 파서가 JSON 규격 외 공백(NBSP 등)을 허용함 → 허용 공백을 제한.
+2. UUID 길이만 맞으면 하이픈 구조가 잘못되어도 통과함 → 8-4-4-4-12 구조 검증.
+3. 시각 필드가 날짜 문자열·지역 형식·잘못된 날짜의 자동 보정값을 허용함
+   → UTC ISO 8601 형식과 실제 날짜 일치 검증.
+생성/수정/삭제 시각과 백업 생성 시각에 동일 규칙을 적용했다.
+기존 앱이 생성한 정상 백업의 왕복 테스트와 전체 회귀는 계속 통과한다.
+
+테스트 자체 조정
+최초 카테고리 생성 순서와 IndexedDB 키 순서가 달라지는 것은 정상이다.
+초기화 재실행 검증을 배열 순서 대신 동일한 ID 집합으로 수정했다.
+
+별도 커버리지 실행: npm.cmd run test:coverage (종료 코드 0)
+대상: public/core의 domain.js, backup.js, store.js. 브라우저 UI는 포함하지 않음.
+                라인       분기       함수
+domain.js       100.00%    94.22%    91.76%
+backup.js       100.00%    92.16%    91.67%
+store.js        100.00%    90.77%    78.57%
+전체            100.00%    93.38%    88.80%
+소스가 긴 한 줄로 작성된 부분이 많아 라인 커버리지만으로 충분성을 판단하면 안 된다.
+분기/함수 커버리지도 참고하며 미실행 경로가 남아 있음을 명시한다.
+
+환경과 제한
+Node.js test runner, fake-indexeddb, Playwright, Windows의 Microsoft Edge headless.
+매 테스트 독립 DB 또는 브라우저 컨텍스트를 사용했다. 실제 사용자 기록은 변경하지 않았다.
+브라우저 실제 저장소의 쓰기 도중 실패·복원 세대 충돌·재실행을 별도로 확인했다.
+Safari/Firefox, 실제 모바일 설치와 OS 한글 IME, 실제 디스크 고갈은 별도 실기 대상이다.
+저장 실패는 예외 주입으로 검증했으며 실제 디스크를 채우지 않았다.
+
+근거: full-run.txt, coverage.txt. 동일 테스트를 커버리지 측정으로 재실행한 횟수는 합계에 중복 산입하지 않았다.

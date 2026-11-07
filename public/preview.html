@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#24334e">
+  <meta name="description" content="Acco Note 가계부 화면 미리보기.">
+  <title>Acco Note — 가계부</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="vendor/flatpickr/flatpickr.min.css">
+  <link rel="stylesheet" href="vendor/flatpickr/monthSelect.css">
+  <link rel="stylesheet" href="ako-theme.css">
+  <link rel="stylesheet" href="ui-components.css">
+  <link rel="icon" type="image/svg+xml" href="ako-mark.svg">
+  <script src="ui-components.js" defer></script>
+  <script src="vendor/lucide/icons.js" defer></script>
+  <script src="vendor/flatpickr/flatpickr.min.js" defer></script>
+  <script src="vendor/flatpickr/ko.js" defer></script>
+  <script src="vendor/flatpickr/monthSelect.js" defer></script>
+  <script src="ui-inputs.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">본문으로 이동</a>
+  <aside class="sidebar">
+    <a href="#ledger" class="brand" aria-label="acconote · 아코 노트 홈"><img class="brand-mark" src="ako-mark.svg" alt="" width="40" height="40"><span>acco<span class="brand-light">note</span></span></a>
+    <nav aria-label="주 메뉴" id="navigation"></nav>
+  </aside>
+  <div class="workspace">
+    <main id="main" tabindex="-1"></main>
+  </div>
+  <div id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

@@ -1,0 +1,113 @@
+/* Shared component sizes. Legacy class names are adapters for static markup. */
+select,.field select,.transaction-editor .field select{appearance:none;padding-right:36px;background-image:url("vendor/lucide/chevron-down.svg");background-repeat:no-repeat;background-position:right 12px center;background-size:16px}
+:root{--space-1:4px;--space-2:8px;--space-3:12px;--space-4:16px;--space-5:24px;--control-height:38px;--card-padding:16px;--control-radius:7px;--card-radius:12px}
+.primary,.button,.ui-button{min-height:var(--control-height);padding:0 var(--space-3);border-radius:var(--control-radius);font-size:14px}
+.icon-button{min-width:var(--control-height);min-height:var(--control-height)}
+/* Action icons share one size, including compact and mobile buttons. */
+:root{--button-icon-size:18px}
+button:is(.icon-button,.button,.primary,.ui-button,.row-detail-button) .icon,
+.heading>button.primary .icon,.management button.primary .icon,
+.view-toggle button .icon{width:var(--button-icon-size);height:var(--button-icon-size);flex:0 0 var(--button-icon-size);vertical-align:middle}
+.icon-button,.row-detail-button,.view-toggle button{display:inline-flex;align-items:center;justify-content:center;line-height:1}
+.field input,.field select,.field textarea,.transaction-editor .field input,.transaction-editor .field select{min-height:var(--control-height);padding:8px 10px;border-radius:var(--control-radius);font-size:14px}
+.field>span,.transaction-editor .field>span{margin-bottom:6px;font-size:12px}
+.card,.summary,.budget-hero,.saving-banner{border-radius:var(--card-radius)}
+main{padding:24px 28px}
+.heading{margin-bottom:var(--space-4)}
+.heading h1{font-size:24px}
+.month-row{margin-bottom:var(--space-4)}
+.summary{padding:18px 0;margin-bottom:var(--space-4)}
+.summary>div{padding:0 20px;gap:8px}
+.summary .amount{font-size:26px}
+.content-grid,.cards-grid,.category-grid,.backup-grid{gap:var(--space-4)}
+.card-tabs,.management>.tabs{padding:0 var(--space-4)}
+.tabs{gap:20px}.tabs>button{min-height:44px}
+.toolbar{padding:12px 16px;gap:8px}
+.toolbar{align-items:center}
+.toolbar>.button,.toolbar>.search,.toolbar>.view-toggle{height:var(--control-height);min-height:var(--control-height)}
+.toolbar>.search input{height:100%;min-height:0}
+.toolbar>.bulk-toggle{width:var(--control-height);min-width:var(--control-height);padding:0}
+.toolbar>.view-toggle{padding:3px;gap:2px;align-items:center;border-radius:var(--control-radius)}
+.toolbar>.view-toggle button{width:calc(var(--control-height) - 8px);height:calc(var(--control-height) - 8px);min-height:0;padding:0;flex:none}
+.search{min-height:var(--control-height)}
+.ledger-table-wrap{padding:0 var(--space-4)}
+.ledger-table th{padding:8px 10px}
+.ledger-table td{height:44px;padding:5px 10px}
+.row-detail-button{min-height:32px}
+.list-end{min-height:44px;padding:12px}
+.panel.inline-panel{margin:12px 0;border-radius:var(--card-radius)}
+.ledger-card>.inline-panel{margin:0 16px 12px}
+.inline-panel .panel-header{padding:12px 16px}
+.inline-panel .panel-body,.transaction-editor .panel-body{padding:var(--card-padding)}
+.inline-panel .panel-footer{padding:10px 16px}
+.inline-panel form{gap:var(--space-3)}
+.section-heading{margin:20px 0 12px}
+.management-body,.statistics,.category-budget,.goal-body,.backup-grid>section{padding:var(--card-padding)}
+.budget-hero,.saving-banner{padding:20px;gap:20px;margin-bottom:20px}
+.budget-hero h2,.saving-banner h2{font-size:30px}
+.category-budget h3{margin:12px 0 8px}
+.category-budget .progress,.goal-body .progress{margin-top:12px}
+.goal-art{height:120px}
+.recurring-summary{margin:16px 0 8px;padding:14px 16px}
+.management .transaction{min-height:64px;padding:10px 8px}
+.category-grid>button{padding:12px}
+.mini-tabs{margin:16px 0;gap:8px}
+.mini-tabs{align-items:center;flex-wrap:wrap}
+.mini-tabs>button{display:inline-flex;align-items:center;justify-content:center;min-height:var(--control-height);padding:0 12px;font-size:14px;line-height:1.4}
+.management .section-title{align-items:center}
+.section-heading>div{display:flex;align-items:center;flex-wrap:wrap;gap:8px}
+.selection-bar>div,.inline-panel .panel-footer{display:flex;align-items:center;flex-wrap:wrap;gap:8px}
+input[type=checkbox]{margin:0;vertical-align:middle;flex-shrink:0}
+.category-icon{width:36px;height:36px}
+.payment-cards,.backup-grid{margin-top:16px}
+.payment-card{padding:18px;min-height:190px;border-radius:var(--card-radius)}
+.payment-card h3{margin:6px 0 16px}
+.payment-card>span:not(.amount){margin-top:12px}
+.completed-goals{margin-top:20px}
+.completed-goals>summary{min-height:52px;padding:12px 0}
+.completed-goal{padding:16px}
+.field select,.transaction-editor .field select{padding-right:36px}
+.field input[data-date],.field input[data-month]{background-size:16px 16px}
+.field input[data-date],.field input[data-month]{cursor:pointer;padding-right:34px;background-image:url("vendor/lucide/calendar-days.svg");background-repeat:no-repeat;background-position:right 10px center}
+.transaction-editor .field input[data-date],.transaction-editor .field input[data-month]{background-color:#fff;color:var(--ink)}
+.transaction-editor .field input[data-date]:focus,.transaction-editor .field input[data-month]:focus{background-color:#eaf3ff;border-color:#668fc1}
+.flatpickr-calendar{font-family:inherit;border:1px solid var(--line);border-radius:12px;box-shadow:0 8px 28px #24334e22;color:var(--ink);z-index:100}
+.flatpickr-calendar .flatpickr-months,.flatpickr-calendar .flatpickr-weekdays{background:#f0f4fa;border-radius:12px 12px 0 0}
+.flatpickr-calendar .flatpickr-month,.flatpickr-calendar span.flatpickr-weekday{color:var(--ink)}
+.flatpickr-calendar .flatpickr-current-month{font-size:14px}
+.flatpickr-calendar .flatpickr-day{color:var(--ink);border-radius:7px}
+.flatpickr-calendar .flatpickr-day.today{border-color:#739bcb}
+.flatpickr-calendar .flatpickr-day.selected,.flatpickr-calendar .flatpickr-monthSelect-month.selected{background:var(--ako-navy);border-color:var(--ako-navy);color:white}
+.flatpickr-calendar .flatpickr-day:hover,.flatpickr-calendar .flatpickr-day:focus,.flatpickr-calendar .flatpickr-monthSelect-month:focus{background:#d3e5fa;border-color:transparent;color:#203c62;outline:none}
+.flatpickr-calendar .flatpickr-day.prevMonthDay,.flatpickr-calendar .flatpickr-day.nextMonthDay{color:#586a83}
+.selection-bar{margin:0 16px 12px;padding:10px 12px}
+.filters{display:grid;grid-template-columns:repeat(2,minmax(0,180px)) auto;align-items:end;gap:12px;padding:0 16px 12px}
+.filters .field{margin:0}
+.filters select{width:100%;min-height:var(--control-height);font-size:14px;color:var(--ink);padding:8px 36px 8px 10px}
+.filters>.button{justify-self:start}
+.inline-panel .form-hint{margin:0;line-height:1.6}
+.inline-panel .panel-footer{gap:8px}
+.ui-tabs>button{padding-left:4px;padding-right:4px}
+@media(max-width:767px){
+ :root{--control-height:44px;--card-padding:12px}
+ main{padding:20px 14px 94px}
+ .heading h1{font-size:22px}
+ .heading{margin-bottom:16px}
+ .summary{padding:4px 12px}
+ .summary>div{padding:12px 0}
+ .toolbar{padding:10px 12px}
+ .ledger-table-wrap{padding:0 8px}
+ .ledger-table th,.ledger-table td{padding:6px 5px}
+ .ledger-table td{height:48px}
+ .row-detail-button{min-height:44px}
+ .ledger-card>.inline-panel{margin:0 10px 10px}
+ .tabs>button{min-height:44px}
+ .budget-hero,.saving-banner{padding:16px;gap:16px}
+ .goal-art{height:112px}
+ .selection-bar{margin:0 10px 10px}
+ .inline-form-actions .primary,.inline-form-actions .button{padding:0 10px}
+ .filters{grid-template-columns:repeat(2,minmax(0,1fr));padding:0 12px 12px;gap:8px}
+ .filters>.button{grid-column:1 / -1;justify-self:end}
+ .management>.tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;padding:0 8px}
+ .management>.tabs>button{font-size:12px;padding:0 2px;min-width:0;white-space:nowrap}
+}
