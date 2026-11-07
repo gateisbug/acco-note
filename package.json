@@ -7,6 +7,7 @@
   "scripts": {
     "dev": "node scripts/serve.mjs",
     "build:icons": "node scripts/build-icons.mjs",
+    "build:pages": "node scripts/build-pages.mjs",
     "check": "node --check public/ui-components.js && node --check public/ui-inputs.js && node --check public/live.js && node --check public/core/domain.js && node --check public/core/store.js && node --check public/core/backup.js && node --check public/sw.js",
     "test:unit": "node --test tests/domain.test.mjs tests/boundaries.unit.test.mjs tests/backup.unit.test.mjs",
     "test:integration": "node --test tests/store.integration.test.mjs",
@@ -16,6 +17,7 @@
     "test:ui": "playwright test",
     "test:browser": "playwright test tests/browser.integration.spec.cjs tests/live.spec.cjs tests/ux.spec.cjs",
     "test:preview": "playwright test tests/preview.spec.cjs",
+    "test:pages": "playwright test tests/pages.spec.cjs",
     "audit:ui": "node scripts/ui-audit.cjs"
   },
   "devDependencies": {
